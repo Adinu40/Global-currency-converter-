@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Currency Convertor</title>
+  <script> 
+  document.addEventLestener(DOMContentLoaded, function(){
+    document.querySelector('form').onsubmit=function(){
+        fetch("").then(response=>response.json())
+          then(data=>{
+            const input=querySelector('#input').value;
+            const rate= data.rates[input]
+            if(rate!==undefined){
+              document.querySelector('#result').innerHTML="1 dollar = ", rate, input}
+            else {
+              document.querySelector('#result').innerHTML="unknown currency!"}
+            
+          })
+        }
+    }
+  });
+  </script>
+</head>
+<body bgcolor="bgblack">
+  <h1 style="font-color:white)">
+    Currency convertor
+  </h2>
+  <form>
+    <input id="input" type="text" placeholder="currency">
+    <input id="submit" type="submit" value="convert" bgcolor="brown">
+  </form>
+  <div id= "result">
+  </div>
+</body>
+</html>
